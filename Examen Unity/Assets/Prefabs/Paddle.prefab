@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8441648977490507413}
   m_Layer: 0
   m_Name: Paddle
-  m_TagString: Untagged
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7175045057635859711
 MeshFilter:
@@ -144,3 +144,4 @@ MonoBehaviour:
   maxLateralDistance: 12
   leftKey: 276
   rightKey: 275
+  Fx: {fileID: 194016, guid: 263867d4955e3644f9a1dfa779ab7d1e, type: 3}

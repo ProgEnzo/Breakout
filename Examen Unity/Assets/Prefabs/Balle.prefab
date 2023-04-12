@@ -150,6 +150,9 @@ MonoBehaviour:
   speed: 850
   rb: {fileID: 8759990349492779116}
   dir: {x: 0, y: 1, z: 0}
+  Fx: {fileID: 194016, guid: 263867d4955e3644f9a1dfa779ab7d1e, type: 3}
+  Fx2: {fileID: 191186, guid: 079954accd64b32419ec069129c81273, type: 3}
+  Balle: {fileID: 6257264311641722361}
 --- !u!120 &730261781226853099
 LineRenderer:
   serializedVersion: 2

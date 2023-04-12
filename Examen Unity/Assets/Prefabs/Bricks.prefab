@@ -118,3 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be0958dc97d7744ca5a10229493db83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 4960154474896772096, guid: 78529c93dca041c438bff26c8f19aa58, type: 3}
+  Fx: {fileID: 120410, guid: 6636b3078b0905e489f698a11b7a6b6b, type: 3}
+  camera: {fileID: 4015906642262809842, guid: 14c157074397cbf4c929aa315dd5f749, type: 3}
+  cameraShake: {fileID: 8997781894128644198, guid: 14c157074397cbf4c929aa315dd5f749,
+    type: 3}
