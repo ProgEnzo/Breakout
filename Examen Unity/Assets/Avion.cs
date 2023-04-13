@@ -20,10 +20,21 @@ public class Avion : MonoBehaviour
         {
             Destroy(this);
         }
+
     }
+
+    public bool isMoving;
     
+    public void AvionPlanage()
+    {
+            if (isMoving == false)
+            {
+                StartCoroutine(AvionPlanage(targets[instance.index]));
+            }
+    }
     public IEnumerator AvionPlanage(Transform target)
     {
+        isMoving = true;
         while (Vector3.Distance(transform.position, target.position) > 0.1f)
         {
             transform.position = Vector3.Lerp(transform.position, target.position, speed * Time.deltaTime);
@@ -31,15 +42,19 @@ public class Avion : MonoBehaviour
             yield return null;
         }
 
-        if (index + 1 < targets.Length)
+        if (index  < targets.Length-1)
         {
             index++;
+            
+            StartCoroutine(AvionPlanage(targets[index]));
+          
         }
         else
         {
+            isMoving = false;
             index = 0;
         }
 
-        StartCoroutine(AvionPlanage(targets[index]));
+       
     }
 }

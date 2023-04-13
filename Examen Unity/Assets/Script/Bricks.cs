@@ -8,31 +8,17 @@ using Random = UnityEngine.Random;
 
 public class Bricks : MonoBehaviour
 {
-    //public static Bricks instance;
-    
     [SerializeField] private GameObject score;
     [SerializeField] private GameObject Fx;
 
-    [SerializeField] private float bonusValue = 0.5f;
+    [SerializeField] private float bonusValue = 0.01f;
 
     [SerializeField] private GameObject bonusPrefab;
 
-    //public CameraShake cameraShake;
-    
-    /*private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(this);
-        }
-    }*/
-    
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("collision");
+        
         if (collision.gameObject.CompareTag("Ball"))
         {
             Spawner.instance.bricksInGame.Remove(this.gameObject);
@@ -41,12 +27,7 @@ public class Bricks : MonoBehaviour
             ScoreManager.Instance.IncreasedScore(transform, 100);
             Instantiate(Fx, transform.position, quaternion.identity);
 
-            var spawnBonus = Random.Range(0, 1);
-            if (spawnBonus > bonusValue)
-            {
-                Instantiate(bonusPrefab, transform.position, Quaternion.identity);
-            }
-
+            StartCoroutine(WaitForBonus());
             StartCoroutine(BounceBeforeFx());
         }
     }
@@ -55,6 +36,17 @@ public class Bricks : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f); //0.1
         Destroy(gameObject);
+    }
+
+    private IEnumerator WaitForBonus()
+    {
+        var spawnBonus = Random.Range(0f, 1f);
+        if (spawnBonus < bonusValue)
+        {
+            Instantiate(bonusPrefab, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(10f);
+        }
+        
     }
 
 }

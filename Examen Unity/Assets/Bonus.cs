@@ -7,9 +7,16 @@ public class Bonus : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Ball"))
+        if (other.gameObject.CompareTag("Paddle"))
         {
-            StartCoroutine(Avion.instance.AvionPlanage(Avion.instance.targets[Avion.instance.index]));
+            Avion.instance.AvionPlanage();
+            StartCoroutine(StartPlane());
         }
+    }
+
+    private IEnumerator StartPlane()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(this.gameObject);
     }
 }
