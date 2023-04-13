@@ -32,8 +32,15 @@ public class MenuManager : MonoBehaviour
         Cursor.visible = false;
     }
 
+    private void Start()
+    {
+        UiAnimPause.instance.CloseMenu();
+    }
+
     private void Update()
     {
+        PauseMenu();
+        
         if (isGamePaused)
         {
             Time.timeScale = 0;

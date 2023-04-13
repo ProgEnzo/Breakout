@@ -19,11 +19,11 @@ public class AnimButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _rectTransform.DOScale(defaultScale*animScaleMultiplier, 0.2f);
+        _rectTransform.DOScale(defaultScale*animScaleMultiplier, 0.2f).SetUpdate(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _rectTransform.DOScale(defaultScale, 0.2f);
+        _rectTransform.DOScale(defaultScale, 0.2f).SetUpdate(true);
     }
 }

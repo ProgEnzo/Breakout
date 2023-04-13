@@ -9,7 +9,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject settingsMenu;
     private void Awake()
     {
-        //Cursor
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }

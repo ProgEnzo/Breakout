@@ -6,13 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+    
     public int lives = 3;
     
     public SpawnBallManager ball { get; private set; }
+    
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else if (instance != this)
+            {
+                Destroy(this);
+            }
+            
+            DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -24,30 +36,17 @@ public class GameManager : MonoBehaviour
     {
         this.lives = 3;
     }
-    
-    /*private void ResetLevel()
-    {
-        this.ball.SpawnNewBallOnPaddle();
-    }*/
 
     private void GameOver()
     {
-        //SceneManager.LoadScene("GameOver");
-        
         NewGame();
     }
 
-    /*public void Miss()
+    public void Win()
     {
-        this.lives--;
-
-        if (this.lives > 0)
+        if (Spawner.instance.bricksInGame.Count <= 0)
         {
-            ResetLevel();
+            UiAnimWin.instance.OpenMenu();
         }
-        else
-        {
-            GameOver();
-        }
-    }*/
+    }
 }

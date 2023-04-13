@@ -23,26 +23,15 @@ public class UiAnimPause : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        CloseMenu();
-    }
-
     public void OpenMenu()
     {
-        if (!menuOpen)
-        {
-            anim.SetBool("isPauseOpen", true);
-            menuOpen = true;
-        }
+        anim.SetBool("isPauseOpen", true);
+        Cursor.visible = true;
     }
 
     public void CloseMenu()
     {
-        if (menuOpen)
-        {
-            anim.SetBool("isPauseOpen", false);
-            menuOpen = false;
-        }
+        anim.SetBool("isPauseOpen", false);
+        Cursor.visible = false;
     }
 }
